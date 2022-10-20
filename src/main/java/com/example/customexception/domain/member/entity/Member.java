@@ -1,6 +1,7 @@
 package com.example.customexception.domain.member.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,6 +36,14 @@ public class Member {
 
     @Column(name = "ROLE")
     private Role role;
+
+    @Builder
+    public Member(String username, String password, String email, String nickname) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.nickname = nickname;
+    }
 
     //권한 추가
     public void addMemberAuthority(){
