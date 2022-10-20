@@ -6,3 +6,4 @@ public class RedisMember {
 // 커밋용주석
 // 커밋용주석
 // 커밋용주석
+// 커밋용주석
