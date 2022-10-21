@@ -1,0 +1,10 @@
+jwt:
+  secret: Q3VzdG9tRXhjZXB0aW9uUHJhY3RpY2VQcm9qZWN0 #CustomExceptionPracticeProject
+
+  access:
+    expiration: 86400 #3600*24
+    header: Authorization
+
+  refresh:
+    expiration: 604800 #3600*24*7
+    header: Authorization-refresh

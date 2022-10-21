@@ -38,11 +38,12 @@ public class Member {
     private Role role;
 
     @Builder
-    public Member(String username, String password, String email, String nickname) {
+    public Member(String username, String password, String email, String nickname,String emailVf) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.nickname = nickname;
+        this.emailVf=emailVf;
     }
 
     //권한 추가

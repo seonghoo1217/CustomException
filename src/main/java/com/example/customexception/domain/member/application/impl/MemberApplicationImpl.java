@@ -11,9 +11,7 @@ public class MemberApplicationImpl implements MemberApplication {
 
     @Override
     public void signUp(MemberDTO.MemberSignUpDto memberSignUpDto) throws Exception {
-        Member member = memberSignUpDto.toEntity();
-        member.addMemberAuthority();
-        member.encodeToPassword(passwordEncoder);
+
     }
 
     @Override

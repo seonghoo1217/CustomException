@@ -1,4 +1,3 @@
-/*
 package com.example.customexception.global.application.jwt;
 
 import com.example.customexception.domain.member.exception.MemberException;
@@ -49,7 +48,7 @@ public class JwtServiceImpl implements JwtService{
 //    }
 
     private static final String ACCESS_TOKEN_SUBJECT = "AccessToken";
-    private static final String REFRESH_TOKEN_SUBJECT = "RefreshToken";
+    private static final String aREFRESH_TOKEN_SUBJECT = "RefreshToken";
     private static final String USERNAME_CLAIM = "username";
     private static final String BEARER = "Bearer ";
 
@@ -173,4 +172,3 @@ public class JwtServiceImpl implements JwtService{
     }
 
 }
-*/
