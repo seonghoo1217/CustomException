@@ -37,6 +37,8 @@ public class Member {
     @Column(name = "ROLE")
     private Role role;
 
+    @Column(name = "REFRESH_TOKEN")
+    private String refreshToken;
     @Builder
     public Member(String username, String password, String email, String nickname,String emailVf) {
         this.username = username;
@@ -53,5 +55,9 @@ public class Member {
 
     public void encodeToPassword(PasswordEncoder passwordEncoder){
         this.password=passwordEncoder.encode(password);
+    }
+
+    public void addRefreshToken(String refreshToken){
+        this.refreshToken=refreshToken;
     }
 }

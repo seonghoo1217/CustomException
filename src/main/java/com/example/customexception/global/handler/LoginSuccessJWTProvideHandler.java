@@ -1,8 +1,7 @@
 package com.example.customexception.global.handler;
 
-import learn.jwt.andsocket.model.entity.Member;
-import learn.jwt.andsocket.repository.MemberRepository;
-import learn.jwt.andsocket.service.jwt.JwtService;
+import com.example.customexception.domain.member.repository.MemberRepository;
+import com.example.customexception.global.application.jwt.JwtService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.Authentication;

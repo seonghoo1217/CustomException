@@ -1,6 +1,7 @@
 package com.example.customexception.global.config.security;
 
 
+import com.example.customexception.domain.member.repository.MemberRepository;
 import com.example.customexception.global.application.jwt.JwtService;
 import com.example.customexception.global.application.login.ApiLoginService;
 import com.example.customexception.global.filter.JsonUsernamePasswordAuthenticationFilter;
