@@ -4,12 +4,15 @@ import com.example.customexception.domain.member.application.service.MemberAppli
 import com.example.customexception.domain.member.dto.MemberDTO;
 import com.example.customexception.domain.member.entity.Member;
 import com.example.customexception.domain.member.repository.RedisMemberRepository;
+import com.example.customexception.global.entity.redis.dto.RedisMemberDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class MemberApplicationImpl implements MemberApplication {
 
     private final PasswordEncoder passwordEncoder;
@@ -17,8 +20,8 @@ public class MemberApplicationImpl implements MemberApplication {
     private final RedisMemberRepository repository;
 
     @Override
-    public void signUp(MemberDTO.MemberSignUpDto memberSignUpDto) throws Exception {
-
+    public void signUp(RedisMemberDTO redisMemberDTO) throws Exception {
+        repository.save(redisMemberDTO.toRedisEntity());
     }
 
     @Override

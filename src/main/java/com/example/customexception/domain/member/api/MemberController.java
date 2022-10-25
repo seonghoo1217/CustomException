@@ -76,8 +76,7 @@ public class MemberController {
     }*/
 
 
-    @PostMapping("/member")
+    /*@PostMapping("/member")
     public ResponseEntity<?> signUPApi(@RequestBody MemberDTO.MemberSignUpDto memberSignUpDto){
-        memberService.signUp(memberSignUpDto);
-    }
+    }*/
 }

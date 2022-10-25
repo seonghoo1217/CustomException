@@ -48,6 +48,8 @@ dependencies {
     implementation group: 'com.zaxxer', name: 'HikariCP', version: '4.0.3'
     //////////////////////////////////////////////////////////////////////////////////
 
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.6.2'
+
 }
 
 tasks.named('test') {

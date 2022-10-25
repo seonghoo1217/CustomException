@@ -1,11 +1,12 @@
 package com.example.customexception.domain.member.application.service;
 
 import com.example.customexception.domain.member.dto.MemberDTO;
+import com.example.customexception.global.entity.redis.dto.RedisMemberDTO;
 import org.springframework.stereotype.Service;
 
 public interface MemberApplication {
 
-    void signUp(MemberDTO.MemberSignUpDto memberSignUpDto) throws Exception;
+    void signUp(RedisMemberDTO redisMemberDTO) throws Exception;
 
     void update(MemberDTO.MemberUpdateDto memberUpdateDto, String username) throws Exception;
 
