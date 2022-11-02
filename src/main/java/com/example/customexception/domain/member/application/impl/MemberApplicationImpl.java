@@ -1,9 +1,10 @@
 package com.example.customexception.domain.member.application.impl;
 
+import com.example.customexception.domain.email.application.service.EmailApplication;
 import com.example.customexception.domain.member.application.service.MemberApplication;
 import com.example.customexception.domain.member.dto.MemberDTO;
-import com.example.customexception.domain.member.entity.Member;
 import com.example.customexception.domain.member.repository.RedisMemberRepository;
+import com.example.customexception.global.entity.redis.RedisMember;
 import com.example.customexception.global.entity.redis.dto.RedisMemberDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,9 +20,12 @@ public class MemberApplicationImpl implements MemberApplication {
 
     private final RedisMemberRepository repository;
 
+    private final EmailApplication emailApplication;
+
     @Override
     public void signUp(RedisMemberDTO redisMemberDTO) throws Exception {
-        repository.save(redisMemberDTO.toRedisEntity());
+        RedisMember r_member = repository.save(redisMemberDTO.toRedisEntity());
+        emailApplication.createVerifiedEmail(r_member.getEmail(),r_member.getNickname());
     }
 
     @Override

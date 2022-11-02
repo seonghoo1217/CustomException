@@ -3,13 +3,11 @@ package com.example.customexception.domain.email.application.impl;
 import com.example.customexception.domain.email.application.service.EmailApplication;
 import com.example.customexception.domain.email.exception.MailException;
 import com.example.customexception.domain.email.exception.MailExceptionType;
-import com.example.customexception.global.application.jwt.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Random;
@@ -21,7 +19,6 @@ public class EmailApplicationImpl implements EmailApplication {
     private final JavaMailSender javaMailSender;
 
     private static String verifiedKey="";
-    private final JwtService jwtService;
 
     @Override
     public MimeMessage createVerifiedEmail(String toEmail,String nickname) throws MailException {
@@ -53,7 +50,7 @@ public class EmailApplicationImpl implements EmailApplication {
     }
 
 
-    public static String createVerifiedCode(){
+    public static void createVerifiedCode(){
         StringBuilder key=new StringBuilder();
         Random rnd = new Random();
 
@@ -75,7 +72,14 @@ public class EmailApplicationImpl implements EmailApplication {
                     break;
             }
         }
-
-        return key.toString();
+        verifiedKey=key.toString();
     }
+
+    public static String getVerifiedKey(){
+        return verifiedKey;
+    }
+
+    /*private static <T>boolean validation(String err_type,T err_param){
+
+    }*/
 }
